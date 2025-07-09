@@ -1,98 +1,98 @@
 # Banking Dashboard Backend
 
-Banking Dashboard, modern teknolojilerle geliştirilmiş, güvenli, kurumsal seviyede bir bankacılık web uygulamasıdır. Proje, Java Spring Boot tabanlı backend mimarisi ve RESTful API yapısı ile gerçek dünya finansal işlemlerini simüle eder.
+Banking Dashboard is a secure, enterprise-grade banking backend application developed with modern technologies. The project simulates real-world financial transactions through a Java Spring Boot backend architecture and RESTful API design.
 
 ---
 
-## İçindekiler
+## Table of Contents
 
-- [Genel Bakış](#genel-bakış)  
-- [Özellikler](#özellikler)  
-- [Teknolojiler](#teknolojiler)  
-- [Proje Mimarisi](#proje-mimarisi)  
-- [Kurulum ve Çalıştırma](#kurulum-ve-çalıştırma)  
-- [API Dökümantasyonu](#api-dökümantasyonu)  
-- [Testler](#testler)  
-- [Güvenlik](#güvenlik)  
-- [Geliştirme ve Katkı](#geliştirme-ve-katkı)  
-- [Lisans](#lisans)
-
----
-
-## Genel Bakış
-
-Bu proje, banka müşterilerinin hesap oluşturma, para transferi, işlem geçmişini görüntüleme ve daha birçok bankacılık işlemini güvenli bir şekilde yapmasını sağlar. 
-
-Backend katmanı, **Spring Boot** kullanılarak geliştirilmiş olup, JWT tabanlı güvenlik, veri doğrulama, hata yönetimi ve test otomasyonlarını kapsamaktadır.
+* [Overview](#overview)
+* [Features](#features)
+* [Technologies](#technologies)
+* [Project Architecture](#project-architecture)
+* [Setup and Running](#setup-and-running)
+* [API Documentation](#api-documentation)
+* [Tests](#tests)
+* [Security](#security)
+* [Development and Contribution](#development-and-contribution)
+* [Contact](#contact)
 
 ---
 
-## Özellikler
+## Overview
 
-- **Kullanıcı Kayıt & Giriş (JWT Authentication)**
-- **Hesap Yönetimi:** Hesap oluşturma, hesap detaylarını görüntüleme, kullanıcıya ait hesapların listelenmesi.
-- **Para Transferi:** Hesaplar arası para gönderme, para yatırma (deposit), çekme (withdrawal) işlemleri.
-- **İşlem Geçmişi:** Hesap bazında tüm para hareketlerini listeleme.
-- **Kurumsal Düzeyde Güvenlik:** JWT ile yetkilendirme, parola şifreleme.
-- **DTO ve MapStruct ile Katmanlı Tasarım:** Veri transfer objeleri ve haritalama işlemleri.
-- **Global Exception Handling:** Merkezi hata yakalama ve tutarlı API hata cevapları.
-- **Entegrasyon Testleri:** Controller ve service katmanları için kapsamlı uçtan uca testler.
-- **Unit Testler:** Servis katmanı için detaylı birim testler.
-- **OpenAPI/Swagger (isteğe bağlı):** API dökümantasyonu.
+This project enables bank customers to securely create accounts, transfer money, view transaction histories, and perform many other banking operations.
+
+The backend layer is developed using **Spring Boot**, featuring JWT-based security, data validation, error handling, and automated testing.
 
 ---
 
-## Teknolojiler
+## Features
 
-- Java 17
-- Spring Boot 3.5.x
-- Spring Security (JWT)
-- Spring Data JPA
-- PostgreSQL
-- Maven
-- MapStruct
-- JUnit 5 & Mockito
-- Spring Test (MockMvc)
-- Jackson (JSON işlemleri)
-- Lombok
-- Testcontainers (Opsiyonel, integration test için)
+* **User Registration & Login (JWT Authentication)**
+* **Account Management:** Create accounts, view account details, list user accounts.
+* **Money Transfers:** Transfer funds between accounts, deposit, withdraw.
+* **Transaction History:** List all account transactions.
+* **Enterprise-Level Security:** JWT authorization and password encryption.
+* **Layered Design with DTOs and MapStruct:** Data transfer objects and mapping.
+* **Global Exception Handling:** Centralized error capture and consistent API error responses.
+* **Integration Tests:** Comprehensive end-to-end tests for controllers and services.
+* **Unit Tests:** Detailed unit tests for service layer.
+* **OpenAPI/Swagger (optional):** API documentation.
 
 ---
 
-## Proje Mimarisi
+## Technologies
 
-Projede klasik **3 katmanlı mimari** benimsenmiştir:
-
-- **Controller:** API endpoint’leri, HTTP isteklerini alır, servisleri çağırır.
-- **Service:** İş mantığı burada yer alır, işlemler bu katmanda yönetilir.
-- **Repository:** Veritabanı işlemleri JPA repository ile gerçekleştirilir.
-
-**DTO'lar (Data Transfer Objects)** ile API ve entity katmanı arasında veri geçişi soyutlanmıştır. MapStruct kullanılarak veri dönüşümleri otomatik hale getirilmiştir.
+* Java 17
+* Spring Boot 3.5.x
+* Spring Security (JWT)
+* Spring Data JPA
+* PostgreSQL
+* Maven
+* MapStruct
+* JUnit 5 & Mockito
+* Spring Test (MockMvc)
+* Jackson (JSON processing)
+* Lombok
+* Testcontainers (Optional, for integration testing)
 
 ---
 
-## Kurulum ve Çalıştırma
+## Project Architecture
 
-1. **Projeyi Klonlayın:**
+The project follows a classic **3-layer architecture**:
+
+* **Controller:** Handles API endpoints and HTTP requests, calls services.
+* **Service:** Business logic and operations are managed here.
+* **Repository:** Database operations via JPA repositories.
+
+**DTOs (Data Transfer Objects)** abstract the data transfer between API and entity layers. MapStruct is used for automatic mapping.
+
+---
+
+## Setup and Running
+
+1. **Clone the project:**
 
    ```bash
    git clone https://github.com/erenaskin/banking-dashboard.git
    cd banking-dashboard
-````
+   ```
 
-2. **PostgreSQL Veritabanını Ayarlayın:**
+2. **Configure PostgreSQL Database:**
 
-   * PostgreSQL 17 veya uyumlu bir sürümü kurun.
-   * Veritabanı ve kullanıcı oluşturun.
-   * `application.properties` veya `application.yml` içinde veritabanı bağlantı bilgilerinizi güncelleyin.
+   * Install PostgreSQL 17 or compatible version.
+   * Create database and user credentials.
+   * Update database connection details in `application.properties` or `application.yml`.
 
-3. **Projeyi Build Edin ve Çalıştırın:**
+3. **Build and run the project:**
 
    ```bash
    ./mvnw clean spring-boot:run
    ```
 
-4. **Testleri Çalıştırın:**
+4. **Run tests:**
 
    ```bash
    ./mvnw test
@@ -100,58 +100,58 @@ Projede klasik **3 katmanlı mimari** benimsenmiştir:
 
 ---
 
-## API Dökümantasyonu
+## API Documentation
 
-* Tüm API endpoint’leri REST standartlarına uygundur.
-* JWT Token ile yetkilendirme gerektirir.
-* Başlıca endpointler:
+* All API endpoints follow REST standards.
+* JWT Token authorization is required.
+* Main endpoints include:
 
-| Method | URL                               | Açıklama                           |
-| ------ | --------------------------------- | ---------------------------------- |
-| POST   | /api/auth/register                | Kullanıcı kaydı                    |
-| POST   | /api/auth/login                   | Kullanıcı girişi (token al)        |
-| POST   | /api/accounts                     | Hesap oluşturma                    |
-| GET    | /api/accounts                     | Kullanıcının hesaplarını listeleme |
-| GET    | /api/accounts/{iban}/currency     | Hesap para birimini alma           |
-| GET    | /api/accounts/{iban}/details      | Hesap detaylarını alma             |
-| POST   | /api/accounts/{iban}/transactions | Para transferi, işlem yapma        |
-| POST   | /api/transactions                 | Transfer işlemi                    |
-| GET    | /api/transactions/{iban}          | Hesap işlem geçmişi                |
-
----
-
-## Testler
-
-Projede kapsamlı testler bulunmaktadır:
-
-* **Unit Testler:** Servis katmanındaki iş mantığını test eder.
-* **Integration Testler:** Controller ve servisleri uçtan uca test ederek API endpointlerinin doğru çalışmasını sağlar.
-* Testler için MockMvc, JUnit 5, Mockito ve Spring Boot Test framework’ü kullanılmıştır.
-* Hataların erken tespiti için testler CI pipeline'ına entegre edilmesi önerilir.
+| Method | URL                               | Description             |
+| ------ | --------------------------------- | ----------------------- |
+| POST   | /api/auth/register                | User registration       |
+| POST   | /api/auth/login                   | User login (get token)  |
+| POST   | /api/accounts                     | Create account          |
+| GET    | /api/accounts                     | List user accounts      |
+| GET    | /api/accounts/{iban}/currency     | Get account currency    |
+| GET    | /api/accounts/{iban}/details      | Get account details     |
+| POST   | /api/accounts/{iban}/transactions | Perform transactions    |
+| POST   | /api/transactions                 | Transfer operation      |
+| GET    | /api/transactions/{iban}          | Get transaction history |
 
 ---
 
-## Güvenlik
+## Tests
 
-* Kullanıcı kimlik doğrulaması JWT (JSON Web Token) ile yapılır.
-* Parolalar BCrypt ile şifrelenir.
-* Tüm API endpointleri yetkilendirme mekanizması ile korunur.
-* Global Exception Handler ile tutarlı ve anlamlı hata mesajları sağlanır.
+The project includes comprehensive testing:
 
----
-
-## Geliştirme ve Katkı
-
-* Kod standartları ve temiz kod prensiplerine dikkat edilmiştir.
-* Yeni özellik eklemek veya hataları düzeltmek için pull request açabilirsiniz.
-* Proje modüler yapıda olduğundan geliştirme kolaydır.
-* MapStruct ve DTO kullanımıyla entity ve API yapısı ayrı tutulmuştur.
+* **Unit Tests:** Test business logic at the service layer.
+* **Integration Tests:** End-to-end testing of controllers and services to verify API endpoints.
+* Tests use MockMvc, JUnit 5, Mockito, and Spring Boot testing framework.
+* Integrating tests into CI pipelines is recommended for early error detection.
 
 ---
 
-## İletişim
+## Security
 
-Geliştirici: **Eren AŞKIN**
+* User authentication is performed with JWT (JSON Web Tokens).
+* Passwords are encrypted using BCrypt.
+* All API endpoints are protected with authorization mechanisms.
+* Global Exception Handler provides consistent and meaningful error messages.
+
+---
+
+## Development and Contribution
+
+* Coding standards and clean code principles are followed.
+* Pull requests are welcome to add features or fix bugs.
+* The modular project structure facilitates easy development.
+* Use of MapStruct and DTOs keeps entity and API layers separate.
+
+---
+
+## Contact
+
+Developer: **Eren AŞKIN**
 GitHub: [https://github.com/erenaskin](https://github.com/erenaskin)
 Email: [eren.askin@hotmail.com](mailto:eren.askin@hotmail.com)
 
