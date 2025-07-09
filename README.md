@@ -152,9 +152,9 @@ The project includes comprehensive testing:
 ## Contact
 
 Developer: **Eren AŞKIN**
----
+
 GitHub: [https://github.com/erenaskin](https://github.com/erenaskin)
-----
+
 Email: [eren.askin@hotmail.com](mailto:eren.askin@hotmail.com)
 
 
